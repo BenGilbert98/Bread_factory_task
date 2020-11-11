@@ -30,7 +30,7 @@ Learning outcomes include:
 ## Installing and running
 To run the naan factory do the following:
 
-```python
+``` python
 import naan factory
 run factory()
 ```
@@ -93,7 +93,8 @@ As a user, I can user the run factory with water and flour and get naan.
 - First the tests are created in a file beginning with test_ in this example ```test_main```
 - Unittest is imported to allow us to check for errors
 - Methods are defined to test the bake_dough, make_dough and run_factory methods with expected outcomes
-```
+- The test is run using ```pytest -v``` inside the terminal with failures expected on all tests.
+``` python
 from naan_factory import Factory
 import unittest
 
@@ -125,7 +126,7 @@ class naan_factory_test(unittest.TestCase):
 - This is the file where all the code is run from. As a result, we must import the Factory class from naan_factory file
 - An instance of the class must then be created
 - the factory() function is then called using the class instance
-```
+``` python
 from naan_factory import Factory
 
 # creating an instance of Factory class
@@ -136,8 +137,9 @@ naan_factory.factory()
 ```
 
 #### naan_factory
-- Class is defined with variables processes, dough and naan
-```
+- Class is defined with attributes processes, dough and naan
+- dough and naan are set to 0 by default as they need to be made first
+``` python
 class Factory:
     def __init__(self):
         self.processes = ['Make Dough', 'Bake Dough', 'Run Factory', 'Display dough', 'Display naan']
@@ -145,7 +147,7 @@ class Factory:
         self.naan = 0
 ```
 - make_dough, bake_dough and run_factory methods are added
-```
+``` python
     def make_dough(self, arg1, arg2):
         # if "water" and "flour" are entered for arg1 and arg2 or arg2 and arg1 respectively a dough is added
         if (arg1 == "water" and arg2 == "flour") or (arg1 == "flour" and arg2 == "water"):
@@ -156,7 +158,8 @@ class Factory:
         else:
             print("You need flower and water to make dough")
             return "no dough"
-
+    
+    # this function checks if there is any dough. If there is dough, naan is made and dough is reduced by 1
     def bake_dough(self):
         if self.dough >= 1:
             self.naan += 1
@@ -180,7 +183,7 @@ class Factory:
 ```
 - The factory method is defined which asks the user which method they wish to use then calls the relevant function
 - If exit is typed the loop breaks
-```
+``` python
  def factory(self):
         # infinite loop created to keep promoting user
         while True:
@@ -209,7 +212,7 @@ class Factory:
                 break
 ```
 - Together:
-```
+``` python
 class Factory:
     def __init__(self):
         self.processes = ['Make Dough', 'Bake Dough', 'Run Factory', 'Display dough', 'Display naan']
@@ -274,3 +277,7 @@ class Factory:
         else:
             return "no naan"
 ```
+
+#### Results
+![](images/test_results.png)
+- as shown in the image above, all tests passed successfully indicating that the code is functioning

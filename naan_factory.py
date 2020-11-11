@@ -5,7 +5,7 @@ class Factory:
         self.naan = 0
 
     def factory(self):
-        # infinite loop created to keep promoting user
+        # while loop created to keep promoting user
         while True:
             # prompts user to select a process from the list
             process = input(f" \n Which process would you like to use? \n{self.processes} \n Type exit to leave.\n\n ")
@@ -23,10 +23,10 @@ class Factory:
                 self.run_factory(arg1, arg2)
 
             if process.lower() == "display dough":
-                print(self.dough)
+                print(f"You currently have {self.dough} dough")
 
             if process.lower() == "display naan":
-                print(self.naan)
+                print(f"You currently have {self.naan} naan")
 
             elif process.lower() == "exit":
                 break
